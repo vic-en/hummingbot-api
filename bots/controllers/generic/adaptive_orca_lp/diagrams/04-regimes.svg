@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="812" viewBox="0 0 1000 812">
+<rect width="1000" height="812" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1e1e1e"/></marker></defs>
+<text x="40" y="42" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="26" fill="#1e1e1e">Adaptive Orca LP - volatility regimes</text>
+<polyline points="480.0,138.0 160.0,212.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="480.0,138.0 395.0,212.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="480.0,138.0 630.0,212.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="480.0,138.0 865.0,212.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="160.0,500.0 480.0,552.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="395.0,500.0 480.0,552.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="630.0,500.0 480.0,552.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="480.0,648.0 480.0,702.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="120" y="72" width="720" height="66" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2"/>
+<text x="480.0" y="110.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">volatility ratio  =  current volatility / EWMA baseline</text>
+<rect x="60" y="212" width="200" height="56" rx="10" fill="#b2f2bb" stroke="#2f9e44" stroke-width="2"/>
+<text x="160.0" y="245.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">CALM</text>
+<rect x="60" y="284" width="200" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="160.0" y="311.9" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">ratio &lt; 0.75</text>
+<rect x="60" y="344" width="200" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="160.0" y="372.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle">x 0.70</text>
+<rect x="60" y="404" width="200" height="96" rx="10" fill="#b2f2bb" stroke="#2f9e44" stroke-width="2"/>
+<text x="160.0" y="438.7" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle" font-weight="bold">tighten</text>
+<text x="160.0" y="456.9" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">more fees per unit</text>
+<text x="160.0" y="475.1" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">of capital</text>
+<rect x="295" y="212" width="200" height="56" rx="10" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/>
+<text x="395.0" y="245.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">NORMAL</text>
+<rect x="295" y="284" width="200" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="395.0" y="311.9" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">0.75 - 1.50</text>
+<rect x="295" y="344" width="200" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="395.0" y="372.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle">x 1.00</text>
+<rect x="295" y="404" width="200" height="96" rx="10" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/>
+<text x="395.0" y="456.9" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">baseline width</text>
+<rect x="530" y="212" width="200" height="56" rx="10" fill="#ffec99" stroke="#f08c00" stroke-width="2"/>
+<text x="630.0" y="245.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">HIGH_VOL</text>
+<rect x="530" y="284" width="200" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="630.0" y="311.9" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">1.50 - 2.50</text>
+<rect x="530" y="344" width="200" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="630.0" y="372.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle">x 1.75</text>
+<rect x="530" y="404" width="200" height="96" rx="10" fill="#ffec99" stroke="#f08c00" stroke-width="2"/>
+<text x="630.0" y="447.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle" font-weight="bold">widen</text>
+<text x="630.0" y="466.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">fewer rebalances</text>
+<rect x="765" y="212" width="200" height="56" rx="10" fill="#ffc9c9" stroke="#e03131" stroke-width="2"/>
+<text x="865.0" y="245.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">EXTREME</text>
+<rect x="765" y="284" width="200" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="865.0" y="311.9" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">ratio &gt;= 2.50</text>
+<rect x="765" y="344" width="200" height="46" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="865.0" y="372.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle">x 3.00</text>
+<rect x="765" y="404" width="200" height="96" rx="10" fill="#ffc9c9" stroke="#e03131" stroke-width="2"/>
+<text x="865.0" y="447.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle" font-weight="bold">WITHDRAW</text>
+<text x="865.0" y="466.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">stay flat 1800s</text>
+<rect x="120" y="552" width="720" height="96" rx="10" fill="#d0bfff" stroke="#6741d9" stroke-width="2"/>
+<text x="480.0" y="595.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">width = z_score  x  volatility  x  regime_multiplier</text>
+<text x="480.0" y="616.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">clamped to [ min_range_pct , max_range_pct ]  =  [ 0.25% , 5% ]</text>
+<rect x="120" y="702" width="720" height="62" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2"/>
+<text x="480.0" y="738.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">lower = price x (1 - width)          upper = price x (1 + width)</text>
+</svg>

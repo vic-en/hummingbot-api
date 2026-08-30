@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="812" viewBox="0 0 1420 812">
+<rect width="1420" height="812" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1e1e1e"/></marker></defs>
+<text x="40" y="42" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="26" fill="#1e1e1e">Adaptive Orca LP - funding and restart recovery</text>
+<polyline points="200.0,134.0 200.0,182.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="200.0,262.0 200.0,312.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="315.0,362.0 400.0,310.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="315.0,362.0 400.0,430.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="315.0,362.0 400.0,560.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="900.0,262.0 900.0,312.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="1015.0,362.0 1090.0,305.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="900.0,412.0 925.0,462.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="1015.0,362.0 1090.0,550.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="925.0,558.0 925.0,602.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="785.0,642.0 715.0,620.0 715.0,200.0 760.0,222.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="72" width="280" height="62" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2"/>
+<text x="200.0" y="108.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">Controller startup</text>
+<rect x="60" y="182" width="280" height="80" rx="10" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/>
+<text x="200.0" y="217.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Query on-chain positions</text>
+<text x="200.0" y="238.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">for the configured pool</text>
+<polygon points="200.0,312 315,362.0 200.0,412 85,362.0" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="200.0" y="357.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">How many</text>
+<text x="200.0" y="378.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">unmanaged?</text>
+<rect x="400" y="272" width="230" height="76" rx="10" fill="#b2f2bb" stroke="#2f9e44" stroke-width="2"/>
+<text x="515.0" y="305.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">none</text>
+<text x="515.0" y="326.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">-&gt; normal start</text>
+<rect x="400" y="382" width="230" height="96" rx="10" fill="#ffec99" stroke="#f08c00" stroke-width="2"/>
+<text x="515.0" y="414.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">one</text>
+<text x="515.0" y="435.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">-&gt; ADOPT and monitor</text>
+<text x="515.0" y="456.4" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">through the same gates</text>
+<rect x="400" y="512" width="230" height="96" rx="10" fill="#ffc9c9" stroke="#e03131" stroke-width="2"/>
+<text x="515.0" y="547.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle" font-weight="bold">several</text>
+<text x="515.0" y="564.5" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle">-&gt; warn, monitor the first,</text>
+<text x="515.0" y="581.4" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle">open NOTHING</text>
+<rect x="760" y="182" width="280" height="80" rx="10" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/>
+<text x="900.0" y="217.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Planned range needs</text>
+<text x="900.0" y="238.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">base + quote amounts</text>
+<polygon points="900.0,312 1015,362.0 900.0,412 785,362.0" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="900.0" y="357.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Wallet short</text>
+<text x="900.0" y="378.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">one token?</text>
+<rect x="1090" y="272" width="230" height="66" rx="10" fill="#b2f2bb" stroke="#2f9e44" stroke-width="2"/>
+<text x="1205.0" y="310.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">OPEN position</text>
+<rect x="1090" y="502" width="230" height="96" rx="10" fill="#ffc9c9" stroke="#e03131" stroke-width="2"/>
+<text x="1205.0" y="534.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">both short</text>
+<text x="1205.0" y="555.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">-&gt; capital shortfall,</text>
+<text x="1205.0" y="576.4" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">not a mix problem</text>
+<rect x="785" y="462" width="280" height="96" rx="10" fill="#d0bfff" stroke="#6741d9" stroke-width="2"/>
+<text x="925.0" y="494.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">AUTOSWAP</text>
+<text x="925.0" y="515.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">market swap out of the</text>
+<text x="925.0" y="536.4" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">SURPLUS token only</text>
+<rect x="785" y="602" width="280" height="80" rx="10" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/>
+<text x="925.0" y="637.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Wait, refresh balances,</text>
+<text x="925.0" y="658.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">re-quote the position</text>
+<rect x="1044.7" y="312.5" width="19.6" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="1052.5" y="327.5" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="middle">no</text>
+<rect x="920.5" y="426.0" width="27.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="922.5" y="441.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">yes</text>
+<rect x="1060.5" y="445.0" width="35.2" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="1062.5" y="460.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">both</text>
+<rect x="642.6" y="399.0" width="66.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="705.0" y="414.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="end">re-quote</text>
+<text x="60" y="662.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#5c5f66">Recovery runs before any capital is deployed, so a restart can never stack a</text>
+<text x="60" y="682.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#5c5f66">second position. A failed query leaves the flag unset and retries next cycle.</text>
+<text x="760" y="722.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#5c5f66">A re-centring CLMM position converts toward one token on every move, so the</text>
+<text x="760" y="742.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#5c5f66">wallet mix drifts away from what the next range needs. The swap never eats the</text>
+<text x="760" y="762.5" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#5c5f66">base reserved for the position plus the chain's native reserve (0.1 SOL).</text>
+</svg>

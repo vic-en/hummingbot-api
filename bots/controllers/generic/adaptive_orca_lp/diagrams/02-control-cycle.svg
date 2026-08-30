@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1242" viewBox="0 0 720 1242">
+<rect width="720" height="1242" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1e1e1e"/></marker></defs>
+<text x="40" y="42" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="26" fill="#1e1e1e">Adaptive Orca LP - control cycle</text>
+<polyline points="185.0,142.0 195.0,192.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="320.0,242.0 400.0,242.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="195.0,292.0 195.0,342.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="320.0,397.0 400.0,397.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="195.0,452.0 195.0,502.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="320.0,552.0 400.0,557.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="195.0,602.0 195.0,652.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="320.0,702.0 400.0,702.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="195.0,752.0 195.0,802.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="320.0,857.0 400.0,857.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="195.0,912.0 195.0,962.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="320.0,1017.0 400.0,1017.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="195.0,1072.0 210.0,1122.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="72" width="250" height="70" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2"/>
+<text x="185.0" y="102.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Control cycle</text>
+<text x="185.0" y="123.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">(every tick)</text>
+<polygon points="195.0,192 320,242.0 195.0,292 70,242.0" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="195.0" y="237.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Pool price</text>
+<text x="195.0" y="258.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">valid?</text>
+<rect x="400" y="207" width="230" height="70" rx="10" fill="#ffc9c9" stroke="#e03131" stroke-width="2"/>
+<text x="515.0" y="237.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">HOLD</text>
+<text x="515.0" y="258.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">wait for a price</text>
+<polygon points="195.0,342 320,397.0 195.0,452 70,397.0" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="195.0" y="392.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Volatility</text>
+<text x="195.0" y="411.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">estimator ready?</text>
+<rect x="400" y="362" width="230" height="70" rx="10" fill="#ffc9c9" stroke="#e03131" stroke-width="2"/>
+<text x="515.0" y="392.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">HOLD</text>
+<text x="515.0" y="413.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">insufficient history</text>
+<polygon points="195.0,502 320,552.0 195.0,602 70,552.0" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="195.0" y="547.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Regime ==</text>
+<text x="195.0" y="568.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">EXTREME?</text>
+<rect x="400" y="512" width="230" height="90" rx="10" fill="#ffc9c9" stroke="#e03131" stroke-width="2"/>
+<text x="515.0" y="541.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Withdraw liquidity</text>
+<text x="515.0" y="562.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">-&gt; PAUSED</text>
+<text x="515.0" y="583.4" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">(reopen cooldown)</text>
+<polygon points="195.0,652 320,702.0 195.0,752 70,702.0" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="195.0" y="697.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">LP executor</text>
+<text x="195.0" y="718.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">active?</text>
+<rect x="400" y="662" width="230" height="80" rx="10" fill="#ffec99" stroke="#f08c00" stroke-width="2"/>
+<text x="515.0" y="697.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Monitor position</text>
+<text x="515.0" y="718.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">(gates -&gt; rebalance)</text>
+<polygon points="195.0,802 320,857.0 195.0,912 70,857.0" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="195.0" y="853.1" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Adopted position</text>
+<text x="195.0" y="870.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle">from restart?</text>
+<rect x="400" y="817" width="230" height="80" rx="10" fill="#ffec99" stroke="#f08c00" stroke-width="2"/>
+<text x="515.0" y="852.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Monitor adopted</text>
+<text x="515.0" y="873.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">(same gates)</text>
+<polygon points="195.0,962 320,1017.0 195.0,1072 70,1017.0" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="195.0" y="1013.1" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Wallet can fund</text>
+<text x="195.0" y="1030.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle">the planned range?</text>
+<rect x="400" y="977" width="230" height="80" rx="10" fill="#d0bfff" stroke="#6741d9" stroke-width="2"/>
+<text x="515.0" y="1013.1" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle" font-weight="bold">AUTOSWAP</text>
+<text x="515.0" y="1030.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle">market order, then re-quote</text>
+<rect x="85" y="1122" width="250" height="80" rx="10" fill="#b2f2bb" stroke="#2f9e44" stroke-width="2"/>
+<text x="210.0" y="1157.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">OPEN position</text>
+<text x="210.0" y="1178.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">via LPExecutor</text>
+<rect x="352.2" y="221.0" width="19.6" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="360.0" y="236.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="middle">no</text>
+<rect x="203.0" y="306.0" width="27.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="205.0" y="321.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">yes</text>
+<rect x="352.2" y="376.0" width="19.6" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="360.0" y="391.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="middle">no</text>
+<rect x="203.0" y="466.0" width="27.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="205.0" y="481.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">yes</text>
+<rect x="348.3" y="533.5" width="27.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="360.0" y="548.5" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="middle">yes</text>
+<rect x="203.0" y="616.0" width="19.6" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="205.0" y="631.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">no</text>
+<rect x="348.3" y="681.0" width="27.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="360.0" y="696.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="middle">yes</text>
+<rect x="203.0" y="766.0" width="19.6" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="205.0" y="781.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">no</text>
+<rect x="348.3" y="836.0" width="27.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="360.0" y="851.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="middle">yes</text>
+<rect x="203.0" y="926.0" width="19.6" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="205.0" y="941.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">no</text>
+<rect x="352.2" y="996.0" width="19.6" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="360.0" y="1011.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="middle">no</text>
+<rect x="210.5" y="1086.0" width="27.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="212.5" y="1101.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">yes</text>
+</svg>

@@ -1,0 +1,95 @@
+# Adaptive Orca LP - example configuration for an Orca SOL-USDC Whirlpool.
+#
+# To use it:
+#   cp controllers/generic/adaptive_orca_lp/adaptive_orca_lp_sol_usdc.example.yml \
+#      conf/controllers/adaptive_orca_lp_sol_usdc.yml
+# then reference it from a v2_with_controllers script config.
+#
+# pool_address is intentionally blank. Leaving it empty makes the controller resolve
+# the Whirlpool from `trading_pair` through Gateway's pool lookup on the first control
+# cycle, and it logs the address it resolved. To pin a specific fee tier instead, run
+#   >>> gateway pool orca/clmm SOL-USDC
+# in the Hummingbot client (or `lp position-info`) and paste the address here. Never
+# copy a pool address from a chat message or a block explorer search result without
+# checking both mint addresses against the tokens you expect.
+
+id: adaptive_orca_lp_sol_usdc
+controller_name: adaptive_orca_lp
+controller_type: generic
+
+# --- market ------------------------------------------------------------------
+connector_name: solana-mainnet-beta
+lp_provider: orca/clmm
+trading_pair: SOL-USDC
+pool_address: ''
+
+# Capital deployed into the position, in quote currency.
+total_amount_quote: '1000'
+
+# --- volatility --------------------------------------------------------------
+volatility_window: 120              # log returns held in the rolling window
+volatility_min_samples: 30          # returns needed before any capital is deployed
+volatility_sample_interval: '5'     # seconds between samples -> 120 x 5s = 10 min of history
+baseline_alpha: '0.002'             # EWMA weight for the long-run baseline
+
+# --- dynamic range -----------------------------------------------------------
+z_score: '2.0'
+min_range_pct: '0.0025'             # half-width floor: +/-0.25%
+max_range_pct: '0.05'               # half-width ceiling: +/-5%
+calm_multiplier: '0.70'
+normal_multiplier: '1.00'
+high_vol_multiplier: '1.75'
+extreme_multiplier: '3.00'
+
+# --- regime thresholds (volatility / baseline) -------------------------------
+calm_threshold: '0.75'
+high_vol_threshold: '1.50'
+extreme_vol_threshold: '2.50'
+
+# --- boundary monitoring and hysteresis --------------------------------------
+edge_threshold: '0.10'              # "near edge" when a boundary ratio drops below 10%
+edge_confirmation_ticks: 5          # consecutive samples the edge must hold
+rebalance_cooldown: '900'           # seconds between rebalances
+
+# --- rebalance economics -----------------------------------------------------
+estimated_tx_cost: '0.02'
+estimated_swap_cost: '0.50'
+estimated_slippage: '0.10'
+min_profit_multiple: '2.0'          # benefit must exceed cost by this multiple
+
+# --- expected fee model ------------------------------------------------------
+# CALIBRATE expected_hourly_volume. It is the quote volume routed through THIS
+# position's range per hour (pool volume x your liquidity share), not the pool's
+# total volume. Left at the pool-scale default below, expected fees dwarf the
+# rebalance cost and the economic filter approves everything - the controller logs a
+# warning at startup when that is the case.
+pool_fee_rate: '0.003'
+expected_hourly_volume: '100000'
+forecast_hours: '1'
+fee_reference_range_pct: '0.01'     # half-width at which the volume above is quoted
+max_concentration_multiplier: '10'
+
+# --- fee collection ----------------------------------------------------------
+enable_fee_collection: true
+estimated_fee_collection_cost: '0.02'
+fee_profit_multiple: '2.0'
+fee_collection_cooldown: '300'
+
+# --- autoswap ---------------------------------------------------------------
+# A re-centring CLMM position converts toward one token on every move, so the wallet
+# mix drifts away from what the next range needs. Without autoswap the strategy stalls
+# on "insufficient balance" exactly when a rebalance is due.
+autoswap: true
+swap_buffer_pct: '1'                # extra % swapped beyond the deficit, for slippage
+max_consecutive_swap_failures: 3
+
+# --- protection --------------------------------------------------------------
+extreme_vol_reopen_cooldown: '1800' # stay flat this long after extreme volatility
+safety_exit_pct: '0.02'             # executor auto-closes this far beyond the bounds
+max_consecutive_failures: 5
+error_backoff_seconds: '300'
+slippage_pct: '1'                   # passed to Gateway when quoting position amounts
+min_position_notional_quote: '5'
+status_log_interval: '30'
+
+manual_kill_switch: false

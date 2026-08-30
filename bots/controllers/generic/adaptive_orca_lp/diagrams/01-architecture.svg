@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1236" viewBox="0 0 1000 1236">
+<rect width="1000" height="1236" fill="#ffffff"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1e1e1e"/></marker></defs>
+<text x="40" y="42" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="26" fill="#1e1e1e">Adaptive Orca LP - architecture</text>
+<polyline points="370.0,148.0 370.0,210.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="370.0,306.0 370.0,368.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="370.0,444.0 370.0,506.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="370.0,602.0 370.0,664.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="370.0,740.0 370.0,802.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="370.0,878.0 370.0,940.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<polyline points="370.0,1016.0 370.0,1078.0" fill="none" stroke="#1e1e1e" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="200" y="72" width="340" height="76" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2"/>
+<text x="370.0" y="105.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Orca Whirlpool</text>
+<text x="370.0" y="126.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">(Gateway connector)</text>
+<rect x="200" y="210" width="340" height="96" rx="10" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/>
+<text x="370.0" y="242.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">VolatilityEstimator</text>
+<text x="370.0" y="263.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">rolling stdev of log returns</text>
+<text x="370.0" y="284.4" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">+ EWMA baseline</text>
+<rect x="200" y="368" width="340" height="76" rx="10" fill="#d0bfff" stroke="#6741d9" stroke-width="2"/>
+<text x="370.0" y="401.5" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle" font-weight="bold">RegimeDetector</text>
+<text x="370.0" y="421.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle">CALM · NORMAL · HIGH_VOL · EXTREME</text>
+<rect x="200" y="506" width="340" height="96" rx="10" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/>
+<text x="370.0" y="539.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle" font-weight="bold">DynamicRangeCalculator</text>
+<text x="370.0" y="559.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle">width = z x vol x regime_multiplier</text>
+<text x="370.0" y="578.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="15" fill="#1e1e1e" text-anchor="middle">clamped [0.25%, 5%]</text>
+<rect x="200" y="664" width="340" height="76" rx="10" fill="#ffec99" stroke="#f08c00" stroke-width="2"/>
+<text x="370.0" y="698.1" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle" font-weight="bold">Position monitor</text>
+<text x="370.0" y="715.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle">boundary ratios · hysteresis · cooldown</text>
+<rect x="200" y="802" width="340" height="76" rx="10" fill="#b2f2bb" stroke="#2f9e44" stroke-width="2"/>
+<text x="370.0" y="835.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle" font-weight="bold">EconomicRebalanceFilter</text>
+<text x="370.0" y="854.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#1e1e1e" text-anchor="middle">benefit &gt; cost x min_profit_multiple</text>
+<rect x="200" y="940" width="340" height="76" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2"/>
+<text x="370.0" y="973.2" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle" font-weight="bold">LPExecutor</text>
+<text x="370.0" y="994.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="16" fill="#1e1e1e" text-anchor="middle">(existing Hummingbot V2 executor)</text>
+<rect x="200" y="1078" width="340" height="76" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2"/>
+<text x="370.0" y="1120.5" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="13" fill="#1e1e1e" text-anchor="middle">Gateway -&gt; Orca Whirlpools SDK -&gt; Solana</text>
+<rect x="378.0" y="168.0" width="82.0" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="380.0" y="183.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">pool price</text>
+<rect x="378.0" y="326.0" width="128.8" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="380.0" y="341.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">volatility ratio</text>
+<rect x="378.0" y="464.0" width="50.8" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="380.0" y="479.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">regime</text>
+<rect x="378.0" y="622.0" width="191.2" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="380.0" y="637.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">candidate range (prices)</text>
+<rect x="378.0" y="760.0" width="113.2" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="380.0" y="775.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">confirmed edge</text>
+<rect x="378.0" y="898.0" width="66.4" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="380.0" y="913.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">approved</text>
+<rect x="378.0" y="1036.0" width="167.8" height="18" fill="#ffffff" opacity="0.85"/>
+<text x="380.0" y="1051.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66" text-anchor="start">open / close position</text>
+<text x="610" y="312.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66">Prices, not ticks.</text>
+<text x="610" y="330.9" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66">Gateway and the Orca SDK align</text>
+<text x="610" y="349.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66">bounds to the pool's tick spacing;</text>
+<text x="610" y="368.7" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66">the realized bounds are read back</text>
+<text x="610" y="387.6" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66">from the position.</text>
+<text x="610" y="652.0" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66">Strategy logic lives in the controller.</text>
+<text x="610" y="670.9" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66">Every on-chain action is delegated to</text>
+<text x="610" y="689.8" font-family="Segoe Print, Bradley Hand, Chalkboard SE, Comic Sans MS, cursive" font-size="14" fill="#5c5f66">the existing LPExecutor.</text>
+</svg>
