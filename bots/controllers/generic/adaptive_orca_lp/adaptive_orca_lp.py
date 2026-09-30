@@ -278,8 +278,21 @@ class AdaptiveOrcaLPConfig(ControllerConfigBase):
         description="Seconds between periodic status log lines (0 disables)",
     )
 
+    @field_validator("lp_provider")
+    @classmethod
+    def validate_lp_provider(cls, v: str) -> str:
+        """The trading type is never guessed: Gateway rejects a guessed one with a 400, so an
+        untyped provider has to fail at config load rather than mid-operation. The core's
+        parse_provider defaults an untyped provider to "router", which is the wrong branch
+        entirely for an LP controller, so the contract is enforced here instead."""
+        if "/" not in v:
+            raise ValueError(
+                f"Invalid lp_provider '{v}': expected 'name/type' (e.g. 'orca/clmm')"
+            )
+        return v
+
     @field_validator("volatility_window", "volatility_min_samples", "edge_confirmation_ticks",
-                     "max_consecutive_failures", mode="before")
+                     "max_consecutive_failures", "max_consecutive_swap_failures", mode="before")
     @classmethod
     def validate_positive_int(cls, v, info):
         value = int(v)
@@ -311,6 +324,51 @@ class AdaptiveOrcaLPConfig(ControllerConfigBase):
             raise ValueError("z_score must be positive")
         if self.safety_exit_pct < 0:
             raise ValueError("safety_exit_pct cannot be negative")
+
+        # Everything below is a precondition of one of the strategy components built in
+        # `_build_strategy_components`. Those constructors raise on their own, but they run
+        # inside the controller's __init__, and `StrategyV2Base.add_controller` logs a failed
+        # __init__ and carries on -- the bot then comes up "healthy" with no controller at
+        # all. So each contract is asserted here, at config load, where it surfaces as a 422
+        # before a bot is ever deployed.
+        if self.volatility_min_samples < 2:
+            # A single return has no sample variance: the estimator divides by (n - 1).
+            raise ValueError("volatility_min_samples must be at least 2")
+        if self.pool_fee_rate < 0:
+            raise ValueError("pool_fee_rate cannot be negative")
+        if self.expected_hourly_volume < 0:
+            raise ValueError("expected_hourly_volume cannot be negative")
+        if self.forecast_hours <= 0:
+            raise ValueError("forecast_hours must be positive")
+        if self.fee_reference_range_pct <= 0:
+            raise ValueError("fee_reference_range_pct must be positive")
+        if self.max_concentration_multiplier <= 0:
+            raise ValueError("max_concentration_multiplier must be positive")
+        if self.min_profit_multiple < 0:
+            raise ValueError("min_profit_multiple cannot be negative")
+        if self.estimated_tx_cost < 0:
+            raise ValueError("estimated_tx_cost cannot be negative")
+        if self.estimated_swap_cost < 0:
+            raise ValueError("estimated_swap_cost cannot be negative")
+        if self.estimated_slippage < 0:
+            raise ValueError("estimated_slippage cannot be negative")
+        if self.estimated_fee_collection_cost < 0:
+            raise ValueError("estimated_fee_collection_cost cannot be negative")
+        if self.fee_profit_multiple < 0:
+            raise ValueError("fee_profit_multiple cannot be negative")
+
+        # Not component preconditions, but a negative value here silently disables a safety
+        # mechanism rather than failing, which is worse than being refused.
+        if self.slippage_pct < 0:
+            raise ValueError("slippage_pct cannot be negative")
+        if self.error_backoff_seconds < 0:
+            raise ValueError("error_backoff_seconds cannot be negative")
+        if self.rebalance_cooldown < 0:
+            raise ValueError("rebalance_cooldown cannot be negative")
+        if self.fee_collection_cooldown < 0:
+            raise ValueError("fee_collection_cooldown cannot be negative")
+        if self.extreme_vol_reopen_cooldown < 0:
+            raise ValueError("extreme_vol_reopen_cooldown cannot be negative")
         return self
 
     def update_markets(self, markets: MarketDict) -> MarketDict:
@@ -342,7 +400,12 @@ class AdaptiveOrcaLP(ControllerBase):
         super().__init__(config, *args, **kwargs)
         self.config: AdaptiveOrcaLPConfig = config
 
-        self.lp_dex_name, self.lp_trading_type = parse_provider(config.lp_provider, default_trading_type="clmm")
+        # The config validator guarantees the "name/type" form, so parse_provider's own
+        # default for an untyped provider is never reached. Passing default_trading_type
+        # here instead would re-introduce a dependency on a keyword the core has removed
+        # before now -- and a removed keyword is a TypeError inside __init__, which
+        # add_controller swallows into a bot running with no controller.
+        self.lp_dex_name, self.lp_trading_type = parse_provider(config.lp_provider)
         parts = config.trading_pair.split("-")
         self._base_token: str = parts[0] if len(parts) == 2 else ""
         self._quote_token: str = parts[1] if len(parts) == 2 else ""
@@ -454,14 +517,19 @@ class AdaptiveOrcaLP(ControllerBase):
         parameters marked updatable - regime thresholds, range multipliers, costs,
         profit multiples - actually take effect at runtime instead of being frozen
         into objects built once at startup.
+
+        Every component is built into a local first and published to ``self`` only once
+        they have all been constructed. A constructor that raises half way through would
+        otherwise leave the controller running a mix of new and stale components -- a
+        range calculator on the new config paired with a fee model on the old one.
         """
         config = self.config
-        self.regime_detector = RegimeDetector(
+        regime_detector = RegimeDetector(
             calm_threshold=config.calm_threshold,
             high_vol_threshold=config.high_vol_threshold,
             extreme_threshold=config.extreme_vol_threshold,
         )
-        self.range_calculator = DynamicRangeCalculator(
+        range_calculator = DynamicRangeCalculator(
             z_score=config.z_score,
             min_range_pct=config.min_range_pct,
             max_range_pct=config.max_range_pct,
@@ -470,31 +538,58 @@ class AdaptiveOrcaLP(ControllerBase):
             high_vol_multiplier=config.high_vol_multiplier,
             extreme_multiplier=config.extreme_multiplier,
         )
-        self.fee_model = ExpectedFeeModel(
+        fee_model = ExpectedFeeModel(
             pool_fee_rate=config.pool_fee_rate,
             expected_hourly_volume=config.expected_hourly_volume,
             forecast_hours=config.forecast_hours,
             reference_range_pct=config.fee_reference_range_pct,
             max_concentration_multiplier=config.max_concentration_multiplier,
         )
-        self.cost_model = RebalanceCostModel(
+        cost_model = RebalanceCostModel(
             tx_cost=config.estimated_tx_cost,
             swap_cost=config.estimated_swap_cost,
             slippage_cost=config.estimated_slippage,
         )
-        self.rebalance_filter = EconomicRebalanceFilter(
-            fee_model=self.fee_model,
-            cost_model=self.cost_model,
+        rebalance_filter = EconomicRebalanceFilter(
+            fee_model=fee_model,
+            cost_model=cost_model,
             min_profit_multiple=config.min_profit_multiple,
         )
-        self.fee_collection_policy = FeeCollectionPolicy(
+        fee_collection_policy = FeeCollectionPolicy(
             collection_cost=config.estimated_fee_collection_cost,
             fee_profit_multiple=config.fee_profit_multiple,
         )
 
+        self.regime_detector = regime_detector
+        self.range_calculator = range_calculator
+        self.fee_model = fee_model
+        self.cost_model = cost_model
+        self.rebalance_filter = rebalance_filter
+        self.fee_collection_policy = fee_collection_policy
+
     def update_config(self, new_config: ControllerConfigBase):
-        super().update_config(new_config)
-        self._build_strategy_components()
+        """
+        Apply a hot config update, or keep the running one if the update is refused.
+
+        ``ControllerConfigBase.update_config`` assigns each updatable field in turn, and
+        the config model has ``validate_assignment`` on, so a value the validators reject
+        raises mid-loop. Pydantic still writes the offending value to the field before the
+        model validator runs, which leaves the config holding a value its own validator
+        rejects -- and every later hot update then fails on that stale field rather than on
+        anything the operator just edited. So the previous config is restored on failure,
+        and the components rebuilt from it, rather than leaving the controller managing a
+        live position against a half-applied config.
+        """
+        previous = self.config.model_copy(deep=True)
+        try:
+            super().update_config(new_config)
+            self._build_strategy_components()
+        except Exception as e:
+            self.config = previous
+            self._build_strategy_components()
+            self.logger().error(
+                f"Refused the config update, still running the previous one: {e}"
+            )
 
     # =====================================================================
     # Async data pass
