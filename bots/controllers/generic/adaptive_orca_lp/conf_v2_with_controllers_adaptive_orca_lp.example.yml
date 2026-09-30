@@ -1,0 +1,7 @@
+# Script config for running the Adaptive Orca LP controller.
+# Start with:  start --v2 conf_v2_with_controllers_adaptive_orca_lp.yml
+script_file_name: v2_with_controllers.py
+controllers_config:
+- adaptive_orca_lp_sol_usdc.yml
+max_global_drawdown_quote: null
+max_controller_drawdown_quote: null
